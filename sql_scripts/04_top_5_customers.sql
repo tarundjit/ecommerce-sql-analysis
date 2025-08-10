@@ -1,19 +1,17 @@
--- Query 4: Who are the top 5 most valuable customers?
--- This query calculates the total spending for each customer and identifies the top 5.
-
+-- Query 4: Top 5 most valuable customers by total spending
 SELECT
-    c.CompanyName,
-    c.ContactName,
-    ROUND(SUM(od.UnitPrice * od.Quantity)::numeric, 2) AS TotalSpent
+    c.company_name,
+    c.contact_name,
+    ROUND(SUM(od.unit_price * od.quantity * (1 - od.discount))::numeric, 2) AS total_spent
 FROM
-    Customers c
+    customers c
 JOIN
-    Orders o ON c.CustomerID = o.CustomerID
+    orders o ON c.customer_id = o.customer_id
 JOIN
-    "Order Details" od ON o.OrderID = od.OrderID
+    order_details od ON o.order_id = od.order_id
 GROUP BY
-    c.CompanyName,
-    c.ContactName
+    c.company_name,
+    c.contact_name
 ORDER BY
-    TotalSpent DESC
+    total_spent DESC
 LIMIT 5;
