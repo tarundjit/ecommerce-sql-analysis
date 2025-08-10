@@ -16,3 +16,6 @@ This project uses the classic Northwind sample database, which models the sales 
 * **Finding:** Margaret Peacock is the top-performing sales representative, followed by Janet Leverling.
 * **Script:** [`02_top_5_employees.sql`](./sql_scripts/02_top_5_employees.sql)
  
+### 3. What was the monthly sales trend for 1997?
+* **Finding:** Sales in 1997 started slow and grew steadily, peaking towards the end of the year in November and December.
+* **Script:** [`03_monthly_sales_1997.sql`](./sql_scripts/03_monthly_sales_1997.sql)
